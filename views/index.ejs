@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>NodeJS Twitter Stream</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   </head>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <a class="brand" href="#">NodeJS / Twitter</a>
+          </ul>
+
+          <form class="navbar-search pull-right">
+            <input type="text" class="search-query" placeholder="Search">
+            <input type="button" class='btn btn-success btn-small' value='Go' style='margin-top: 0' />
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div id='tweets' class='span6'>
+      <h4>Recent Tweets</h4>
+      <span class='hint'>Look up, to your right. Enter a search term :)</span>
+      <ul></ul>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
