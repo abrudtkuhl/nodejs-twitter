@@ -1,11 +1,14 @@
 var express = require('express');
-var routes  = require('./routes/index');
-var http    = require('http');
+var app     = express();
+var server  = require('http').Server(app);
 var path    = require('path');
 
-var app = express();
+var routes  = require('./routes/index');
 
-app.configure(function(){
+var twitter = require('./lib/twitter');
+
+
+app.configure(function() {
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
@@ -21,8 +24,12 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+
 app.get('/', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
+
+server.listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));
 });
+
+twitter.listen(server);
